@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Change work directory
-        run: cd my-app
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -14,4 +12,4 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Test with Maven
-        run: mvn test
+        run: cd my-app && mvn test
